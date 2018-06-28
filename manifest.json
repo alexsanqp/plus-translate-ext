@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "update_url": "http://clients2.google.com/service/update2/crx",
+  "name": "Перевод с английского на русский",
+  "version": "1.0.0",
+  "description": "Это расширения позволяет переводить по двойному клику с английского на русский язык с транскрипцией, озвучкой и переводом",
+  "permissions": [
+    "*://*/*",
+    "storage",
+    "notifications"
+  ],
+  "icons": {
+    "16": "images/16.png",
+    "32": "images/32.png",
+    "48": "images/48.png",
+    "128": "images/128.png"
+  },
+  "web_accessible_resources": [
+    "images/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "js/content.min.js"
+      ],
+      "css": [
+        "css/style.css"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "html/popup.html",
+    "default_icon": "images/128.png"
+  },
+  "content_security_policy": " script-src 'self'; object-src 'self'; media-src blob: data: https://www.oxfordlearnersdictionaries.com"
+}
